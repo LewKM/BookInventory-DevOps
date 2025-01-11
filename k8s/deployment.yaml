@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: bookinventory-backend
-        image: your-dockerhub-username/bookinventory-backend:latest
+        image: lewkm51/bookinventory-backend:latest
         ports:
         - containerPort: 8080
         env:
