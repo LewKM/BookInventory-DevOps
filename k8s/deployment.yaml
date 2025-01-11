@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookinventory-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookinventory-backend
+  template:
+    metadata:
+      labels:
+        app: bookinventory-backend
+    spec:
+      containers:
+      - name: bookinventory-backend
+        image: your-dockerhub-username/bookinventory-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://ep-autumn-lake-a2dz3td7-pooler.eu-central-1.aws.neon.tech/bookinventory_db"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "bookinventory_db_owner"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "OeAkfx7qE3WM"
