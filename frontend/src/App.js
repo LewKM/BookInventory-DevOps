@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Books from './books/Books';
-import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Container, Button, Row, Col} from 'react-bootstrap';
 import './App.css'; // Import the CSS file
 
 const App = () => {
@@ -53,6 +53,8 @@ const App = () => {
                   </Col>
                 </Row>
               </section>
+
+              
 
               <footer className="footer mt-5">
                 <p className="text-white">© 2025 Book Inventory. All Rights Reserved.</p>

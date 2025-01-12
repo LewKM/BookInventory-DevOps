@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: bookinventory-backend
 spec:
-
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30000  # You can choose any available port in this range (30000-32767)
   selector:
     app: bookinventory-backend
-  ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
-  type: LoadBalancer
