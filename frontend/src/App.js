@@ -10,10 +10,10 @@ const App = () => {
 
   useEffect(() => {
     axios
-    .get('http://192.168.49.2:30000/books') // Internal service communication
-    .then(response => setBooks(response.data))
-    .catch(error => console.error('Error fetching books:', error));
-  }, []);
+      .get('http://192.168.49.2:30000/books') // Use Minikube IP and NodePort for external communication
+      .then(response => setBooks(response.data))
+      .catch(error => console.error('Error fetching books:', error));
+  }, []);  
 
   return (
     <Container fluid>

@@ -1,10 +1,11 @@
+# Backend Service
 apiVersion: v1
 kind: Service
 metadata:
   name: bookinventory-backend
 spec:
   selector:
-    app: bookinventory-backend
+    app: bookinventory
   ports:
     - protocol: TCP
       port: 8080
@@ -12,13 +13,14 @@ spec:
       nodePort: 30000 # NodePort for accessing the service externally
   type: NodePort
 ---
+# Frontend Service
 apiVersion: v1
 kind: Service
 metadata:
   name: bookinventory-frontend
 spec:
   selector:
-    app: bookinventory-frontend
+    app: bookinventory
   ports:
     - protocol: TCP
       port: 80

@@ -1,3 +1,4 @@
+# Backend Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,15 +7,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookinventory-backend
+      app: bookinventory
   template:
     metadata:
       labels:
-        app: bookinventory-backend
+        app: bookinventory
     spec:
       containers:
       - name: bookinventory-backend
-        image: lewkm51/bookinventory-backend:latest
+        image: lewkm51/bookinventory-devops:latest
         ports:
         - containerPort: 8080
         env:
@@ -27,6 +28,7 @@ spec:
       imagePullSecrets:
         - name: regcred
 ---
+# Frontend Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,14 +37,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookinventory-frontend
+      app: bookinventory
   template:
     metadata:
       labels:
-        app: bookinventory-frontend
+        app: bookinventory
     spec:
       containers:
         - name: bookinventory-frontend
-          image: lewkm51/bookinventory-frontend:latest
+          image: lewkm51/bookinventory-devops:latest
           ports:
             - containerPort: 80
