@@ -10,9 +10,9 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('http://10.99.72.218:8080/books')
-      .then(response => setBooks(response.data))
-      .catch(error => console.error('Error fetching books:', error));
+    .get('http://192.168.49.2:30000/books') // Internal service communication
+    .then(response => setBooks(response.data))
+    .catch(error => console.error('Error fetching books:', error));
   }, []);
 
   return (

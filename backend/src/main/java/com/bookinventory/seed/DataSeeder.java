@@ -17,18 +17,23 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Seed the database with fake data
-        for (int i = 0; i < 10; i++) {
-            Book book = new Book();
-            book.setTitle(faker.book().title());
-            book.setAuthor(faker.book().author());
-            book.setGenre(faker.book().genre());
-            book.setPublicationYear(faker.number().numberBetween(1900, 2025));
+        // Check if books already exist in the database
+        if (bookRepository.count() == 0) {
+            // Seed the database with fake data if no books exist
+            for (int i = 0; i < 10; i++) {
+                Book book = new Book();
+                book.setTitle(faker.book().title());
+                book.setAuthor(faker.book().author());
+                book.setGenre(faker.book().genre());
+                book.setPublicationYear(faker.number().numberBetween(1900, 2025));
 
-            // Save to the database
-            bookRepository.save(book);
+                // Save to the database
+                bookRepository.save(book);
+            }
+
+            System.out.println("Seeded 10 fake books into the database.");
+        } else {
+            System.out.println("Books already exist in the database. Skipping seeding.");
         }
-
-        System.out.println("Seeded 10 fake books into the database.");
     }
 }
