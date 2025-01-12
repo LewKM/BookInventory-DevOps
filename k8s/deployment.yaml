@@ -24,3 +24,5 @@ spec:
           value: "bookinventory_db_owner"
         - name: SPRING_DATASOURCE_PASSWORD
           value: "OeAkfx7qE3WM"
+      imagePullSecrets:
+        - name: regcred

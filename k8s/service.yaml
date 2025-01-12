@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: bookinventory-backend
 spec:
+
   selector:
     app: bookinventory-backend
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-  type: NodePort
+  type: LoadBalancer
