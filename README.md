@@ -1,6 +1,3 @@
-Here's a rephrased version of your README file, making it suitable for a setup that uses just **one Dockerfile** for both frontend and backend:
-
-```markdown
 # Project Setup Guide: BookInventory-DevOps
 
 ## Prerequisites
@@ -14,6 +11,8 @@ Before you begin, ensure you have the following installed on your Debian-based s
 - [JDK 11+](https://openjdk.java.net/install/)
 - [Maven](https://maven.apache.org/install.html) (for building the backend)
 - [PostgreSQL Database URL](#using-pre-existing-database)
+
+### Using Pre-existing Database
 
 > **Note**: Ensure you have sufficient system resources (at least 4GB of RAM) to run Docker and Minikube.
 
@@ -84,9 +83,10 @@ This command configures Docker to build images in the Minikube VM.
 
 ### 2.3 Build the Docker Image
 
-Create a single `Dockerfile` that combines the frontend and backend setup. 
+Create a single `Dockerfile` that combines the frontend and backend setup.
 
 **Dockerfile**:
+
 ```Dockerfile
 # Backend Setup
 FROM maven:3.8.4-openjdk-11-slim AS backend
@@ -146,6 +146,7 @@ Ensure the backend service is configured to use this connection string in its `a
 Inside the `k8s/` directory, create a single deployment file for both frontend and backend.
 
 **bookinventory-deployment.yaml**:
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -243,8 +244,3 @@ minikube stop
 Congratulations! You've successfully set up the **BookInventory-DevOps** project with a single Dockerfile for both frontend and backend on your local Debian machine using Docker and Minikube.
 
 Feel free to reach out if you encounter any issues during the setup or deployment process. Happy coding!
-```
-
-### Key Changes:
-- Merged the Dockerfiles for frontend and backend into a single file.
-- Simplified the Kubernetes deployment configuration for a single service.
