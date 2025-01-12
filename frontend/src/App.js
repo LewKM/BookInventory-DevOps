@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
 import axios from 'axios';
+import Books from './books/Books';
+import { Container, Button } from 'react-bootstrap';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -12,16 +15,22 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Book Inventory</h1>
-      <ul>
-        {books.map(book => (
-          <li key={book.id}>
-            <strong>{book.title}</strong> by {book.author}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Container>
+      <Routes> {/* Define your routes here */}
+        <Route
+          path="/"
+          element={
+            <div className="text-center mt-5">
+              <h1 className="display-4">Book Inventory</h1>
+              <Button variant="success" size="lg" href="/books">
+                View Books
+              </Button>
+            </div>
+          }
+        />
+        <Route path="/books" element={<Books books={books} />} />
+      </Routes>
+    </Container>
   );
 };
 
