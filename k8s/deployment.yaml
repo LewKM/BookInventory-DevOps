@@ -26,3 +26,23 @@ spec:
           value: "OeAkfx7qE3WM"
       imagePullSecrets:
         - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookinventory-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookinventory-frontend
+  template:
+    metadata:
+      labels:
+        app: bookinventory-frontend
+    spec:
+      containers:
+        - name: bookinventory-frontend
+          image: lewkm51/bookinventory-frontend:latest
+          ports:
+            - containerPort: 80

@@ -11,3 +11,16 @@ spec:
       targetPort: 8080
       nodePort: 30000 # NodePort for accessing the service externally
   type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookinventory-frontend
+spec:
+  selector:
+    app: bookinventory-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
